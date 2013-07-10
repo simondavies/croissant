@@ -27,7 +27,7 @@ class Install extends Migration {
 			$table->string('post_title');
 			$table->string('post_url_title');
 			$table->text('post_content');
-            $table->boolean('post_published');
+            		$table->boolean('post_published');
 			$table->dateTime('created_at');
 			$table->dateTime('updated_at');
 			
@@ -42,7 +42,7 @@ class Install extends Migration {
 			$table->string('page_title');
 			$table->string('page_url_title');
 			$table->text('page_content');
-            $table->boolean('page_published');
+            		$table->boolean('page_published');
 			$table->dateTime('created_at');
 			$table->dateTime('updated_at');
 			

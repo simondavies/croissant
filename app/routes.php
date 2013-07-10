@@ -12,8 +12,13 @@
 // The public view composer
 View::composer('themes.' . Config::get('croissant.default_theme') . '.master', function($view)
 {
-    // Make the site title available to all public views
-	$view->with('site_title', Config::get('croissant.site_title'));
+    //-- Make the page title and the list of viewable pages available to all public pages
+    $view_data = array(
+            'site_title' =>Config::get('croissant.site_title'),
+            'pages'=> Page::orderby('created_at', 'DESC')->get()
+        );
+    
+    $view->with($view_data);
 });
 
 // Route model binding for editing models

@@ -23,7 +23,11 @@
             <div class="masthead">
                 <ul class="nav nav-pills pull-right">
                     <li><a href="{{ url() }}">Home</a></li>
-                    <li><a href="{{ url('page/sample-page') }}">Sample Page</a></li>
+                    @foreach ($pages as $page)
+                         @if($page->page_published>0)
+                                <li><a href="{{ url('page/' . $page->page_url_title) }}">{{ $page->page_title }}</a></li>
+                        @endif
+                     @endforeach
                 </ul>
                 <h3 class="muted">{{ $site_title }}</h3>
             </div>
