@@ -15,9 +15,8 @@ View::composer('themes.' . Config::get('croissant.default_theme') . '.master', f
     //-- Make the page title and the list of viewable pages available to all public pages
     $view_data = array(
             'site_title' =>Config::get('croissant.site_title'),
-            'pages'=> Page::orderby('created_at', 'DESC')->get()
+            'pages'=> Page::select('page_url_title','page_title')->where('page_published','1')->orderby('created_at', 'DESC')->get()
         );
-    
     $view->with($view_data);
 });
 
